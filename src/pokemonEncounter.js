@@ -96,3 +96,42 @@ encounterButtom.addEventListener("click", async (event) => {
 
     renderPokemonData(pokemonResult);
 });
+
+let encounterGroupButton = document.getElementById("pokemonGroupEncounter");
+
+encounterGroupButton.addEventListener("click", async () => {
+    // let pokemonResult1 = await getPokemon();
+    // renderPokemonData(pokemonResult1);
+    // let pokemonResult2 = await getPokemon();
+    // renderPokemonData(pokemonResult2);
+    // let pokemonResult3 = await getPokemon();
+    // renderPokemonData(pokemonResult3);
+    // let pokemonResult4 = await getPokemon();
+    // renderPokemonData(pokemonResult4);
+    // let pokemonResult5 = await getPokemon();
+    // renderPokemonData(pokemonResult5);
+    // let pokemonResult6 = await getPokemon();
+    // renderPokemonData(pokemonResult6);
+
+    let multiplePokemonResult = await Promise.all([
+        getPokemon(),
+        getPokemon(),
+        getPokemon(),
+        getPokemon(),
+        getPokemon(),
+        getPokemon()
+    ]);
+
+    console.log(multiplePokemonResult);
+
+    multiplePokemonResult.forEach(renderPokemonData);
+    
+    // multiplePokemonResult.forEach((pokemonResult) => renderPokemonData(pokemonResult));
+
+    multiplePokemonResult.forEach((pokemonResult) => {
+
+        multiplePokemonResult.forEach((pokemonResult) => {
+            renderPokemonData(pokemonResult);
+        })
+    })
+});
